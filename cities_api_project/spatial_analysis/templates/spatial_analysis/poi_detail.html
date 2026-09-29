@@ -1,0 +1,68 @@
+{% extends 'spatial_analysis/base.html' %}
+
+{% block title %}POI Details{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <a href="{% url 'spatial_analysis:dashboard' %}" class="btn btn-primary btn-sm">
+        Back to Dashboard
+    </a>
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="card-title">{{ poi.poi_name }}</h1>
+                    <p class="text-muted">{{ poi.get_poi_type_display }}</p> 
+                    <p>{{ poi.description }}</p>
+                    <p><b>Rating:</b> {{ poi.rating }} </p>
+                    <p><b>Visitors/day:</b> {{ poi.visitors_per_day }} </p>
+                    <p><b>Location (lon, lat):</b> {{ poi.geom.x|floatformat:2 }}, {{ poi.geom.y|floatformat:2 }} </p> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">Nearby Roads (within 1km)</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Road Name</td>
+                                <td>Type</td>
+                                <td>Speed Limit</td>
+                                <td>Distance</td>
+                            </tr>
+                        </thead>
+                        {% for road in nearby_roads %}
+                        <tbody>
+                            <tr>
+                                <td>{{ road.road_name }}</td>
+                                <td>{{ road.get_road_type_display }}</td> 
+                                <td>{{ road.speed_limit }} km/h</td>
+                                <td>{{ road|floatformat }}</td> <!-- Need to be able to get distances from the POI -->
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">Geometry (GeoJSON)</h2>
+                    <p>{{ poi_json }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
