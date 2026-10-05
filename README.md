@@ -1,9 +1,9 @@
 1. Complete Django Project
-    See cities_api_project folder
+   <br> See cities_api_project folder
    
 2. API Documentation
    - Swagger/OpenAPI documentation (auto-generated)
-       Swagger - [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
+       <br>Swagger - [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
        <img width="1920" height="1020" alt="swagger_ui" src="https://github.com/user-attachments/assets/3b9f1f54-ce31-44ec-975d-b29e2f73469a" />
 
        API Schema - [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/schema/)
@@ -26,13 +26,13 @@
            <img width="1920" height="1020" alt="geojson" src="https://github.com/user-attachments/assets/dfceb925-a76f-48cb-b47b-7dc2ec304d9e" />
 
        - Spatial query
-           TODO
+           <br>TODO
          
        - API statistics
            <img width="1920" height="1020" alt="api_stats" src="https://github.com/user-attachments/assets/83fc4577-5abe-4060-8823-a0f463f678a4" />
 
 3. Testing Evidence
-    TODO
+    <br>TODO
 
 4. Report
-    TODO
+    <br>TODO
