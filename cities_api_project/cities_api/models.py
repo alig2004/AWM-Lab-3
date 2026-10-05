@@ -4,6 +4,36 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
 
 
+class CityManager(models.Manager):
+    """Custom manager for City model with spatial queries"""
+
+    def capitals(self):
+        """Return only capital cities"""
+        return self.filter(is_capital=True)
+
+    def by_country(self, country_name):
+        """Filter cities by country"""
+        return self.filter(country__icontains=country_name)
+
+    def large_cities(self, min_population=1000000):
+        """Return cities above population threshold"""
+        return self.filter(population__gte=min_population)
+
+    def within_radius(self, point, radius_km):
+        """Find cities within radius of a point"""
+        from django.contrib.gis.measure import Distance
+        return self.filter(
+            location__distance_lte=(point, Distance(km=radius_km))
+        )
+
+    def in_bounding_box(self, bbox):
+        """Find cities within bounding box [min_lon, min_lat, max_lon, max_lat]"""
+        from django.contrib.gis.geos import Polygon
+
+        min_lon, min_lat, max_lon, max_lat = bbox
+        bbox_polygon = Polygon.from_bbox((min_lon, min_lat, max_lon, max_lat))
+        return self.filter(location__within=bbox_polygon)
+
 class City(models.Model):
     """
     Comprehensive city model with spatial capabilities
@@ -12,6 +42,7 @@ class City(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     country = models.CharField(max_length=100, db_index=True)
     region = models.CharField(max_length=200, blank=True)
+    objects = CityManager()
 
     # Demographics
     population = models.PositiveIntegerField()
@@ -92,37 +123,5 @@ class City(models.Model):
         return None
 
 
-class CityManager(models.Manager):
-    """Custom manager for City model with spatial queries"""
-
-    def capitals(self):
-        """Return only capital cities"""
-        return self.filter(is_capital=True)
-
-    def by_country(self, country_name):
-        """Filter cities by country"""
-        return self.filter(country__icontains=country_name)
-
-    def large_cities(self, min_population=1000000):
-        """Return cities above population threshold"""
-        return self.filter(population__gte=min_population)
-
-    def within_radius(self, point, radius_km):
-        """Find cities within radius of a point"""
-        from django.contrib.gis.measure import Distance
-        return self.filter(
-            location__distance_lte=(point, Distance(km=radius_km))
-        )
-
-    def in_bounding_box(self, bbox):
-        """Find cities within bounding box [min_lon, min_lat, max_lon, max_lat]"""
-        from django.contrib.gis.geos import Polygon
-
-        min_lon, min_lat, max_lon, max_lat = bbox
-        bbox_polygon = Polygon.from_bbox((min_lon, min_lat, max_lon, max_lat))
-        return self.filter(location__within=bbox_polygon)
-
-
 # Add custom manager to City model
-City.add_to_class('objects', CityManager())
-objects = CityManager()
+#City.add_to_class('objects', CityManager())
