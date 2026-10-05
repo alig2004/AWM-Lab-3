@@ -3,6 +3,7 @@ from django.contrib.gis.geos import Point
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
 
+
 class City(models.Model):
     """
     Comprehensive city model with spatial capabilities
@@ -124,3 +125,4 @@ class CityManager(models.Manager):
 
 # Add custom manager to City model
 City.add_to_class('objects', CityManager())
+objects = CityManager()

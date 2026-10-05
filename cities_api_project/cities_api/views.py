@@ -6,7 +6,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.gis.geos import Point
 from django.db.models import Count, Avg, Q, Sum
-from django.contrib.gis.measure import Distance
+from django.contrib.gis.db.models.functions import Distance
 
 from .models import City
 from .serializers import (
