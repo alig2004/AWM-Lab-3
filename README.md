@@ -32,7 +32,12 @@
            <img width="1920" height="1020" alt="api_stats" src="https://github.com/user-attachments/assets/83fc4577-5abe-4060-8823-a0f463f678a4" />
 
 3. Testing Evidence
-    <br>TODO
+    - Unit tests for models and API endpoints
+         <br>TODO
+    - Manual testing
+         <br>TODO
+    - Performance metrics
+         <br>TODO
 
 4. Report
     <br>TODO
