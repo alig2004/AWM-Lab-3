@@ -36,9 +36,7 @@
 
 3. Testing Evidence
     - Unit tests for models and API endpoints
-         <img width="1725" height="931" alt="test1" src="https://github.com/user-attachments/assets/9bdedad4-ec8e-4158-adb3-322f8c9704cd" />
-         <img width="1328" height="912" alt="test2" src="https://github.com/user-attachments/assets/6c273c1a-7e09-4655-9823-71eef791158e" />
-         <img width="857" height="187" alt="test3" src="https://github.com/user-attachments/assets/44dcc5d5-51f8-49f2-84a8-1f30ec82c3bc" />
+         <img width="1885" height="626" alt="test" src="https://github.com/user-attachments/assets/176b4db0-8274-461b-8b5d-64385d71cce7" />
          
     - Manual testing
          - Count of cities by country
