@@ -25,17 +25,31 @@
        - Get GeoJSON format
            <img width="1920" height="1020" alt="geojson" src="https://github.com/user-attachments/assets/dfceb925-a76f-48cb-b47b-7dc2ec304d9e" />
 
-       - Spatial query
-           <br>TODO
+       - Spatial query - cities within radius
+            <img width="1887" height="965" alt="cities_within_rad" src="https://github.com/user-attachments/assets/d13f7042-7285-445a-b2eb-0138457c8fd5" />
+            
+       - Spatial query - cities within bounding box
+           <img width="1896" height="967" alt="cities_in_bbox" src="https://github.com/user-attachments/assets/d4be4e47-65d0-479e-abf2-312e25019798" />
          
        - API statistics
            <img width="1920" height="1020" alt="api_stats" src="https://github.com/user-attachments/assets/83fc4577-5abe-4060-8823-a0f463f678a4" />
 
 3. Testing Evidence
     - Unit tests for models and API endpoints
-         <br>TODO
+         <img width="1725" height="931" alt="test1" src="https://github.com/user-attachments/assets/9bdedad4-ec8e-4158-adb3-322f8c9704cd" />
+         <img width="1328" height="912" alt="test2" src="https://github.com/user-attachments/assets/6c273c1a-7e09-4655-9823-71eef791158e" />
+         <img width="857" height="187" alt="test3" src="https://github.com/user-attachments/assets/44dcc5d5-51f8-49f2-84a8-1f30ec82c3bc" />
+         
     - Manual testing
-         <br>TODO
+         - Count of cities by country
+              <img width="1920" height="1020" alt="cities_by_country" src="https://github.com/user-attachments/assets/be9476d9-b9ee-48aa-9d42-23382d3208d6" />
+
+         - All capital cities
+              <img width="1920" height="1020" alt="all_capital_cities" src="https://github.com/user-attachments/assets/c154d974-a13e-4a7d-bd20-58547ca4eb71" />
+
+         - Spatial query - Cities within 1000km of Dublin
+              <img width="1920" height="1020" alt="cities_within_1000km" src="https://github.com/user-attachments/assets/bc82ba5c-56c7-44bc-9213-497419374a29" />
+           
     - Performance metrics
          <br>TODO
 
